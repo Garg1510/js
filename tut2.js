@@ -113,7 +113,7 @@ cal(arr,(a)=>{
 const gameslist=[];
 const game = [];
 
-const fetchdata = (callback)=>{
+const fetchdata= (callback)=>{
     setTimeout (()=>{
          gameslist.push({
             name:"game 1",
@@ -131,54 +131,90 @@ const fetchdata = (callback)=>{
 };
 
 // fetchdata();
-// const displayGame =()=>{
-//     setTimeout(()=>{
-//         for(let i=0; i<gameslist.length; i++){
-//             const ele =  document.createElement("p");
-//             ele.innerText =  gameslist[i].name;
-//             document.body.append(ele);
-//         }
-//         console.log("consoling after displaying");
-//         console.log(gameslist);
-//     },1000);
-// };
-
-// // displayGame();
-// fetchdata(displayGame);
-
-
-// promises
-const a=  new Promise((resolve, reject)=>{
-    let success = false;
-
-if(success)resolve("promise fullfilled");
-else reject("some technical error");
-})
-
-a.then((parameter)=>{
-    console.log(parameter);
-}).catch((error)=>{
-    console.log(error);
-});
-
-// resolve =  then , reject = catch
-const array=[];
-const fetchData = (array=[])=>{
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            // arr.push({name:"abhi"});
-            if(arr.length>0) resolve("data fetched");
-            else reject("some technical");
-        },1000);
-    });
+const displayGame =()=>{
+    setTimeout(()=>{
+        for(let i=0; i<gameslist.length; i++){
+            const ele =  document.createElement("p");
+            ele.innerText =  gameslist[i].name;
+            document.body.append(ele);
+        }
+        console.log("consoling after displaying");
+        console.log(gameslist);
+    },1000);
 };
 
-fetchData(array).then((message)=>{
-    console.log(message);
-}).catch((error)=>{
-    console.log(error);
-}).finally(()=>{
-    console.log("will work either way");
-});
+// displayGame();
+fetchdata(displayGame);
+
+ 
+// promises   - asynchronous task perform
+// const a=  new Promise((resolve, reject)=>{
+//     let success = false;
+
+// if(success)resolve("promise fullfilled");
+// else reject("some technical error");
+// })
+
+// a.then((parameter)=>{
+//     console.log(parameter);
+// }).catch((error)=>{
+//     console.log(error);
+// });
+
+// resolve =  then , reject = catch
+// const array=[];
+// const fetchData = (array=[])=>{
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             // arr.push({name:"abhi"});
+//             if(arr.length>0) resolve("data fetched");
+//             else reject("some technical");
+//         },1000);
+//     });
+// };
+
+// fetchData(array).then((message)=>{
+//     console.log(message);
+// }).catch((error)=>{
+//     console.log(error);
+// }).finally(()=>{
+//     console.log("will work either way");
+// });
 
 // fetch api
+
+
+const url = "https://api.publicapis.org/entries";
+
+// const fetch = ()=>{
+// fetch(url).then((data)= Response.json())
+// .then((data)=>console.log(data))
+// .catch((e)=>console.log(e))
+// .finally(()=>console.log("all done"));
+// }
+
+// fetch();
+
+// Async and await
+// async - automatically return promise
+// await - neeche ka code freeze funtion ke andar
+
+console.log("a");
+const fetch = async()=>{
+    try{
+    console.log("f1");
+    const response = await fetch(url);
+    console.log("f2");
+    const data = await response.json();
+    console.log("f3");
+    heading.innerText = data.fact;
+    console.log("f4");
+    }
+    catch(eror){
+        console.log(error);
+    }
+};
+console.log("z1");
+fetch();
+
+

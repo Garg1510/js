@@ -32,7 +32,7 @@ console.log(s.substr(3,4))    // from index 3 upto 7th index
 
 let heading = document.getElementById("my heading");
 console.log(heading);
-heading.innerText = "heelo";
+heading.innerText = "hello";
 heading.style.backgroundColor = "red";
 heading.style.color = "white";
 
